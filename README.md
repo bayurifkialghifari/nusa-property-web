@@ -51,7 +51,7 @@ Semua visual proyek diberi label **Visualisasi proyek**. Harga, spesifikasi, dan
 
 Tombol kontak membuka WhatsApp demo ke nomor dummy `6280000000000` dengan pesan sesuai konteks. **Minta brosur & harga** memakai alur demo yang sama, bukan mengunduh berkas. Tidak ada formulir, pengiriman data otomatis, penyimpanan kontak, atau janji waktu respons. Peta dibuka hanya setelah pengunjung memilih tautan Google Maps dengan koordinat `-6.850577,107.4743523`.
 
-Setiap kartu hunian memiliki halaman detail dengan gambar sumber, catatan visual, dan model 3D konseptual yang dapat diputar serta di-zoom. Galeri menggunakan tautan gambar biasa, ditingkatkan menjadi dialog native bila JavaScript tersedia. Navigasi dan seluruh informasi penting tetap tersedia tanpa JavaScript. Tautan eksternal membuka tab baru dengan `rel="noopener noreferrer"`.
+Setiap kartu hunian memiliki halaman detail dengan gambar sumber, catatan visual, dan model GLB konseptual lokal yang dapat diputar serta di-zoom. Viewer memakai `/models/japanese_house_meshopt.glb` tanpa permintaan decoder pihak ketiga. Galeri menggunakan tautan gambar biasa, ditingkatkan menjadi dialog native bila JavaScript tersedia. Navigasi dan seluruh informasi penting tetap tersedia tanpa JavaScript. Tautan eksternal membuka tab baru dengan `rel="noopener noreferrer"`.
 
 ## Pemeriksaan manual sebelum rilis
 

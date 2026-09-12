@@ -103,7 +103,7 @@ No price cards, fake floor plans, beds/baths icons, area figures, stock counts, 
 
 4. HOUSING DETAIL PAGES / /hunian/{slug}
 Create one reusable detail-page design populated for all four routes: /hunian/blok-p-cozy-level, /hunian/blok-p-superimposed, /hunian/cluster-ebony and /hunian/blok-q. Each page includes a breadcrumb, unique H1 and summary, the matching source image, visible unverified-information note, conceptual interactive 3D viewer, short visual-character list, links to the other housing options, contact section and mobile contact bar.
-The 3D viewer is a live canvas region, not a fake screenshot. Show visible controls “Putar kiri”, “Putar kanan” and “Reset tampilan”; pointer drag rotates, wheel/pinch zooms. Use a restrained procedural house model inspired by each facade with the same canvas/pine/ink/line palette and simple directional lighting. No perpetual auto-rotation. Directly disclose: “Model ini merupakan interpretasi konseptual dari visual proyek, bukan gambar teknis atau representasi ukuran sebenarnya.” Keep the source image as the factual visual reference and no-JS fallback.
+The 3D viewer is a live canvas region, not a fake screenshot. Show visible controls “Putar kiri”, “Putar kanan” and “Reset tampilan”; pointer drag rotates, wheel/pinch zooms. Load the shared local GLB house asset from `/models/japanese_house_meshopt.glb`, use simple directional lighting and do not add perpetual auto-rotation. Directly disclose: “Model ini merupakan interpretasi konseptual dari visual proyek, bukan gambar teknis atau representasi ukuran sebenarnya.” Keep the source image as the factual visual reference and no-JS fallback.
 
 5. FACILITIES / #fasilitas
 H2: “Fasilitas lingkungan”.

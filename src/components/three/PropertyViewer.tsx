@@ -1,6 +1,6 @@
-import { OrbitControls } from "@react-three/drei";
+import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import type { HouseVariant } from "../../data/housing";
 import { HouseModel } from "./HouseModel";
 
@@ -29,23 +29,36 @@ export function PropertyViewer({ propertyName, variant }: PropertyViewerProps) {
       >
         <Canvas
           key={viewRevision}
-          camera={{ position: [7.5, 5.8, 8.5], fov: 42 }}
+          camera={{ position: [0, 0.45, 1.85], fov: 42 }}
           dpr={[1, 1.5]}
           frameloop="demand"
+          gl={{ antialias: true, powerPreference: "high-performance" }}
           shadows
         >
           <color attach="background" args={["#f5f6f2"]} />
-          <ambientLight intensity={1.35} />
-          <directionalLight castShadow intensity={2.4} position={[5, 9, 7]} />
-          <directionalLight intensity={0.65} position={[-5, 4, -4]} />
-          <HouseModel rotationY={rotationY} variant={variant} />
+          <ambientLight intensity={1.1} />
+          <directionalLight castShadow intensity={2.2} position={[3, 4, 5]} />
+          <directionalLight intensity={0.55} position={[-3, 2, -2]} />
+          <Suspense fallback={null}>
+            <HouseModel key={variant} rotationY={rotationY} />
+            <ContactShadows
+              blur={2}
+              color="#202b25"
+              far={1.5}
+              frames={1}
+              opacity={0.4}
+              position={[0, -0.22, 0]}
+              scale={3}
+            />
+          </Suspense>
           <OrbitControls
             enablePan={false}
-            maxDistance={14}
+            makeDefault
+            maxDistance={4.5}
             maxPolarAngle={Math.PI / 2.05}
-            minDistance={7}
-            minPolarAngle={Math.PI / 5}
-            target={[0, 1.2, 0]}
+            minDistance={0.8}
+            minPolarAngle={0.08}
+            target={[0, 0, 0]}
           />
         </Canvas>
       </div>

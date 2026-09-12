@@ -70,6 +70,15 @@ These alt texts describe only visible subject matter and source mapping. Do not 
 - Keep real image anchors as the gallery's no-JS fallback. A modal viewer is progressive enhancement, not a condition for reaching the image.
 - Serve images and fonts locally. Do not hotlink source JPEGs or fetch the source page from the visitor's browser.
 
+## Local 3D model
+
+The user supplied both GLB files under `public/models/`. Their original licensing and authorship were not provided, so publication rights must be confirmed before launch. The viewer uses the Meshopt-compressed file locally to avoid downloading a Draco decoder from a third-party CDN. The model is shared by all housing detail pages and remains a conceptual illustration, not a property-specific technical representation.
+
+| Local path | Compression | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| `public/models/japanese_house.glb` | Draco | 2569552 | `e115ba50bac6f77181a9bae88329dd6d30c54428ec0c503fe1fd657c5500582e` |
+| `public/models/japanese_house_meshopt.glb` | Meshopt | 4005080 | `805c61b2bdca3528dd089eba156b93a83506e549d069bcd55939e195ff196253` |
+
 ## Font and license
 
 | Local path | Verified asset | Size |

@@ -178,7 +178,7 @@ Implement reusable semantic primitives against this contract. The worker does no
 ### PropertyDetail and InteractivePropertyViewer
 
 - Each housing option owns a static Astro route under `/hunian/{slug}` with a unique title and description. The source image remains the factual visual reference.
-- The 3D preview is a stylized, procedural interpretation of the visible facade, not an architectural model, floor plan, dimension claim or construction promise. Show that disclosure directly beside the viewer.
+- The 3D preview uses a shared local GLB house asset as a conceptual illustration, not an architectural model, floor plan, property-specific facade, dimension claim or construction promise. Show that disclosure directly beside the viewer.
 - Viewer controls: pointer drag rotates the camera, wheel/pinch zooms, and visible buttons rotate left, rotate right and reset the view. The static source image remains available when WebGL or JavaScript is unavailable.
 - The viewer uses the existing canvas, line, ink, pine and muted palette only. Lighting creates depth; it must not introduce gradients, glow, glassmorphism or decorative perpetual animation.
 - The WebGL island loads only on housing detail pages. Keep the remainder of each page static Astro HTML.
