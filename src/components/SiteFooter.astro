@@ -1,0 +1,35 @@
+---
+import { marketingLink, project } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-layout">
+      <div>
+        <p class="footer-name">{project.name}</p>
+        <p class="footer-address">{project.address}</p>
+      </div>
+      <div class="footer-contact">
+        <p>Marketing · WhatsApp</p>
+        <ActionLink href={marketingLink} variant="text" external>{project.phoneDisplay}</ActionLink>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Informasi dan visualisasi mengacu pada materi proyek dari GAN Properti. Detail terkini perlu dikonfirmasi kepada tim marketing.</p>
+      <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">Lihat sumber proyek<span class="sr-only"> (tab baru)</span></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: var(--space-12) var(--space-8); }
+  .footer-layout { display: flex; align-items: start; justify-content: space-between; gap: var(--space-8); }
+  .footer-name { font-weight: var(--weight-heading); margin-block-end: var(--space-3); }
+  .footer-address { max-inline-size: 44ch; color: var(--muted); font-size: var(--text-small); }
+  .footer-contact p { color: var(--muted); font-size: var(--text-small); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); margin-block-start: var(--space-8); padding-block-start: var(--space-6); border-block-start: var(--border-width) solid var(--line); font-size: var(--text-small); }
+  .footer-bottom p { max-inline-size: 74ch; color: var(--muted); }
+  .footer-bottom a { display: inline-flex; align-items: center; min-block-size: var(--touch-min); flex-shrink: 0; }
+  @media (max-width: 767px) { .footer-layout, .footer-bottom { flex-direction: column; align-items: start; } }
+</style>

@@ -1,0 +1,29 @@
+---
+import { galleryImageSizes, type ProjectImage } from "../data/media";
+import Icon from "./Icon.astro";
+
+interface Props { readonly image: ProjectImage; }
+const { image } = Astro.props;
+---
+
+<figure>
+  <a href={`/images/${image.file}.webp`} class="gallery-link" data-gallery-link data-title={image.title}
+    aria-label={`Perbesar gambar: ${image.title}. Visualisasi proyek.`}>
+    <img src={`/images/${image.file}.webp`}
+      srcset={`/images/${image.file}-640.webp 640w, /images/${image.file}.webp 1200w`}
+      sizes={galleryImageSizes} width={image.width} height={image.height}
+      alt={image.alt} loading="lazy" decoding="async" />
+    <span class="gallery-prompt">Perbesar gambar<Icon name="expand" /></span>
+  </a>
+  <figcaption><span class="image-title">{image.title}</span><span>Visualisasi proyek</span></figcaption>
+</figure>
+
+<style>
+  figure { min-inline-size: 0; }
+  .gallery-link { display: block; border-radius: var(--radius); text-decoration: none; }
+  img { inline-size: 100%; block-size: auto; border-radius: var(--radius); background: var(--line); }
+  .gallery-prompt { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-block-size: var(--touch-min); font-weight: var(--weight-label); text-decoration: underline; text-decoration-thickness: var(--border-width); }
+  .gallery-link:hover .gallery-prompt, .gallery-link:active .gallery-prompt { text-decoration-thickness: var(--focus-width); color: var(--pine-hover); }
+  figcaption { display: flex; flex-direction: column; gap: var(--space-1); color: var(--muted); font-size: var(--text-small); line-height: var(--leading-small); }
+  .image-title { color: var(--ink); font-weight: var(--weight-label); }
+</style>

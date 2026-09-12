@@ -1,0 +1,20 @@
+---
+interface Props {
+  readonly id: string;
+  readonly title: string;
+  readonly intro?: string;
+}
+
+const { id, title, intro } = Astro.props;
+---
+
+<header class="section-heading">
+  <h2 id={id}>{title}</h2>
+  {intro && <p>{intro}</p>}
+  <slot />
+</header>
+
+<style>
+  .section-heading { margin-block-end: var(--space-8); }
+  .section-heading p { margin-block-start: var(--space-4); color: var(--muted); }
+</style>

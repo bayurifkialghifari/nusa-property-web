@@ -1,0 +1,26 @@
+---
+import { project } from "../data/project";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const facilities = ["Masjid", "Ruko", "Taman bermain", "Akses satu gerbang", "Keamanan 24 jam"] as const;
+---
+
+<Section id="fasilitas" ruled>
+  <div class="facilities-layout">
+    <div>
+      <SectionHeading id="fasilitas-title" title="Fasilitas lingkungan"
+        intro="Fasilitas yang tercantum dalam informasi G-Land Padalarang Residence." />
+      <p class="facility-note">Fasilitas tercantum pada <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">informasi proyek dari GAN Properti<span class="sr-only"> (tab baru)</span></a>. Konfirmasikan kondisi dan detail terkininya kepada tim marketing.</p>
+    </div>
+    <ul class="facility-list">{facilities.map((facility) => <li>{facility}</li>)}</ul>
+  </div>
+</Section>
+
+<style>
+  .facilities-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); }
+  .facility-note { max-inline-size: 48ch; color: var(--muted); font-size: var(--text-small); }
+  .facility-list { list-style: none; padding: var(--space-0); margin: var(--space-0); border-block-start: var(--border-width) solid var(--line); }
+  .facility-list li { padding-block: var(--space-4); border-block-end: var(--border-width) solid var(--line); font-size: var(--text-lead); }
+  @media (max-width: 767px) { .facilities-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
+</style>

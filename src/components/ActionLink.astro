@@ -1,0 +1,51 @@
+---
+import type { IconName } from "../data/icons";
+import Icon from "./Icon.astro";
+
+interface Props {
+  readonly href: string;
+  readonly variant?: "primary" | "secondary" | "text" | "inverse";
+  readonly icon?: IconName;
+  readonly external?: boolean;
+  readonly class?: string;
+}
+
+const { href, variant = "primary", icon = "arrow-up-right", external = false, class: className } = Astro.props;
+---
+
+<a class:list={["action-link", `action-link--${variant}`, className]} href={href}
+  target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+  <span><slot />{external && <span class="sr-only"> (tab baru)</span>}</span>
+  <Icon name={icon} />
+</a>
+
+<style>
+  .action-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: var(--space-2); min-block-size: var(--action-height);
+    padding: var(--space-3) var(--space-6);
+    border: var(--border-width) solid var(--pine); border-radius: var(--radius);
+    background: var(--pine); color: var(--canvas);
+    font-weight: var(--weight-heading); line-height: var(--leading-card);
+    text-align: center; text-decoration: none;
+    transition: transform var(--motion-feedback) var(--motion-ease);
+  }
+  .action-link:hover { background: var(--pine-hover); border-color: var(--pine-hover); color: var(--canvas); }
+  .action-link:active { background: var(--pine-active); transform: translateY(var(--press-offset)); }
+  .action-link--secondary { background: var(--transparent); color: var(--pine); }
+  .action-link--secondary:hover, .action-link--inverse:hover {
+    background: var(--line); border-color: var(--pine); color: var(--pine);
+  }
+  .action-link--text {
+    justify-content: flex-start; min-block-size: var(--touch-min); padding: var(--space-2) var(--space-0);
+    background: var(--transparent); border: 0; color: var(--pine); text-align: start;
+    text-decoration: underline; text-decoration-thickness: var(--border-width);
+  }
+  .action-link--text:hover, .action-link--text:active {
+    background: var(--transparent); color: var(--pine-hover); text-decoration-thickness: var(--focus-width);
+  }
+  .action-link--inverse { background: var(--canvas); color: var(--pine); border-color: var(--canvas); }
+  .action-link--secondary:active { background: var(--pine-active); border-color: var(--pine-active); color: var(--canvas); }
+  .action-link--inverse:active { background: var(--line); border-color: var(--line); color: var(--pine-active); }
+  @media (prefers-reduced-motion: reduce) { .action-link:active { transform: none; } }
+</style>

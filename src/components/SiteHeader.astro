@@ -1,0 +1,69 @@
+---
+import { marketingLink } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+import Icon from "./Icon.astro";
+
+const links = [
+  { href: "#hunian", label: "Pilihan hunian" },
+  { href: "#fasilitas", label: "Fasilitas" },
+  { href: "#galeri", label: "Galeri" },
+  { href: "#lokasi", label: "Lokasi" },
+] as const;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#beranda" class="brand" aria-label="G-Land Padalarang Residence, beranda">
+      <span class="brand-name">G-Land</span>
+      <span class="brand-location">Padalarang Residence</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      <ul>{links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+    </nav>
+    <div class="header-action"><ActionLink href={marketingLink} external>Hubungi marketing</ActionLink></div>
+    <details class="mobile-nav" data-mobile-nav>
+      <summary><span>Menu</span><Icon name="menu" class="menu-open" /><Icon name="close" class="menu-close" /></summary>
+      <nav aria-label="Navigasi utama seluler">
+        <ul>{links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
+        <ActionLink href={marketingLink} external>Hubungi marketing</ActionLink>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  import "../scripts/navigation";
+</script>
+
+<style>
+  .site-header { border-block-end: var(--border-width) solid var(--line); }
+  .header-inner { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-4) var(--space-8); min-block-size: var(--header-height); padding-block: var(--space-4); }
+  .brand { display: inline-flex; flex-direction: column; min-block-size: var(--touch-min); justify-content: center; text-decoration: none; color: var(--pine); }
+  .brand-name { font-size: var(--text-brand); font-weight: var(--weight-brand); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); }
+  .brand-location { color: var(--muted); font-size: var(--text-small); line-height: var(--leading-small); }
+  .desktop-nav { margin-inline-start: auto; }
+  ul { display: flex; align-items: center; gap: var(--space-6); list-style: none; padding: var(--space-0); margin: var(--space-0); }
+  nav li a { display: flex; align-items: center; min-block-size: var(--touch-min); color: var(--ink); font-size: var(--text-body); font-weight: var(--weight-label); text-decoration: none; }
+  nav li a:hover { color: var(--pine); text-decoration: underline; }
+  .mobile-nav { display: none; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .header-action { margin-inline-start: auto; }
+    .desktop-nav { order: 3; inline-size: 100%; }
+    .desktop-nav ul { justify-content: space-between; }
+  }
+  @media (max-width: 767px) {
+    .header-inner { position: relative; column-gap: var(--space-0); row-gap: var(--space-0); padding-block: var(--space-3); }
+    .brand { max-inline-size: calc(100% - var(--space-24)); }
+    .desktop-nav, .header-action { display: none; }
+    .mobile-nav { display: block; inline-size: 100%; }
+    summary { position: absolute; inset-inline-end: var(--space-0); inset-block-start: var(--space-4); display: flex; align-items: center; gap: var(--space-2); min-block-size: var(--touch-min); list-style: none; color: var(--pine); }
+    summary::-webkit-details-marker { display: none; }
+    .mobile-nav :global(.menu-close) { display: none; }
+    .mobile-nav[open] :global(.menu-close) { display: block; }
+    .mobile-nav[open] :global(.menu-open) { display: none; }
+    .mobile-nav nav { padding-block: var(--space-6) var(--space-3); }
+    .mobile-nav ul { display: block; margin-block-end: var(--space-4); }
+    .mobile-nav li { border-block-end: var(--border-width) solid var(--line); }
+    .mobile-nav li a { padding-block: var(--space-3); font-size: var(--text-body); }
+  }
+</style>

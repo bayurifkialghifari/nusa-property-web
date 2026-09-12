@@ -1,0 +1,26 @@
+---
+import ContactSection from "../components/ContactSection.astro";
+import FacilitiesSection from "../components/FacilitiesSection.astro";
+import GallerySection from "../components/GallerySection.astro";
+import Hero from "../components/Hero.astro";
+import HousingSection from "../components/HousingSection.astro";
+import LocationSection from "../components/LocationSection.astro";
+import MobileContactBar from "../components/MobileContactBar.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout>
+  <SiteHeader />
+  <main id="konten" tabindex="-1">
+    <Hero />
+    <HousingSection />
+    <FacilitiesSection />
+    <GallerySection />
+    <LocationSection />
+    <ContactSection />
+  </main>
+  <SiteFooter />
+  <MobileContactBar />
+</PageLayout>

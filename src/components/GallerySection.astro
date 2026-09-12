@@ -1,0 +1,19 @@
+---
+import { galleryImages } from "../data/media";
+import GalleryCard from "./GalleryCard.astro";
+import GalleryDialog from "./GalleryDialog.astro";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<Section id="galeri" ruled>
+  <SectionHeading id="galeri-title" title="Gambaran lingkungan"
+    intro="Visualisasi proyek dari materi pemasaran. Tampilan dan kondisi aktual perlu dikonfirmasi kepada tim marketing." />
+  <div class="gallery-grid">{galleryImages.map((image) => <GalleryCard image={image} />)}</div>
+  <GalleryDialog />
+</Section>
+
+<style>
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+  @media (max-width: 767px) { .gallery-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
+</style>

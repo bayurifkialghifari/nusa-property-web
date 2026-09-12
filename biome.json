@@ -1,0 +1,42 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
+  "files": {
+    "includes": [
+      "src/**/*.ts",
+      "src/**/*.css",
+      "package.json",
+      "tsconfig.json",
+      "biome.json",
+      "astro.config.mjs"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "style": {
+        "noDefaultExport": "error",
+        "useImportType": "error",
+        "noNonNullAssertion": "error",
+        "noParameterAssign": "error"
+      },
+      "suspicious": { "noExplicitAny": "error" },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["astro.config.mjs"],
+      "linter": { "rules": { "style": { "noDefaultExport": "off" } } }
+    }
+  ]
+}

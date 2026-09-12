@@ -1,0 +1,46 @@
+---
+import { projectImages } from "../data/media";
+import Icon from "./Icon.astro";
+const initialImage = projectImages.gate;
+---
+
+<dialog id="gallery-dialog" aria-labelledby="gallery-dialog-title" aria-describedby="gallery-dialog-note">
+  <div class="dialog-content">
+    <div class="dialog-heading">
+      <h2 id="gallery-dialog-title">{initialImage.title}</h2>
+      <button type="button" class="dialog-close" data-dialog-close><span>Tutup</span><Icon name="close" /></button>
+    </div>
+    <figure>
+      <img data-dialog-image src={`/images/${initialImage.file}.webp`} alt={initialImage.alt}
+        width={initialImage.width} height={initialImage.height} loading="lazy" decoding="async" />
+      <figcaption>Visualisasi proyek</figcaption>
+    </figure>
+    <p id="gallery-dialog-note">Visualisasi proyek dari materi pemasaran. Tampilan dan kondisi aktual perlu dikonfirmasi kepada tim marketing.</p>
+    <a data-dialog-original href={`/images/${initialImage.file}.webp`} target="_blank" rel="noopener noreferrer">Buka berkas gambar<span class="sr-only"> (tab baru)</span><Icon name="arrow-up-right" /></a>
+  </div>
+</dialog>
+
+<script>
+  import "../scripts/gallery";
+</script>
+
+<style>
+  dialog { inline-size: min(var(--dialog-max), calc(100% - var(--page-gutter) * 2)); max-inline-size: none; max-block-size: calc(100dvh - var(--space-10)); padding: var(--space-0); border: var(--border-width) solid var(--line); border-radius: var(--radius); background: var(--canvas); color: var(--ink); overscroll-behavior: contain; }
+  dialog:not([open]) { display: none; }
+  dialog::backdrop { background: var(--backdrop); }
+  .dialog-content { padding: var(--space-6); }
+  .dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: var(--space-4); margin-block-end: var(--space-5); }
+  h2 { font-size: var(--text-card); line-height: var(--leading-card); padding-block-start: var(--space-2); }
+  .dialog-close { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; gap: var(--space-2); min-block-size: var(--touch-min); padding: var(--space-2) var(--space-3); background: var(--canvas); color: var(--pine); border: var(--border-width) solid var(--pine); border-radius: var(--radius); }
+  .dialog-close:hover { background: var(--line); }
+  .dialog-close:active { background: var(--pine-active); color: var(--canvas); }
+  img { inline-size: 100%; block-size: auto; max-block-size: 60dvh; object-fit: contain; background: var(--line); border-radius: var(--radius); }
+  figcaption { margin-block-start: var(--space-2); color: var(--muted); font-size: var(--text-small); }
+  p { margin-block-start: var(--space-4); color: var(--muted); font-size: var(--text-small); }
+  a { display: inline-flex; align-items: center; gap: var(--space-2); min-block-size: var(--touch-min); margin-block-start: var(--space-2); font-size: var(--text-small); }
+  @media (max-width: 639px) {
+    .dialog-content { padding: var(--space-4); }
+    .dialog-heading { flex-wrap: wrap-reverse; gap: var(--space-3); }
+    .dialog-close { margin-inline-start: auto; }
+  }
+</style>

@@ -1,0 +1,30 @@
+{
+  "name": "gland-padalarang-residence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=11.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src package.json tsconfig.json biome.json astro.config.mjs",
+    "format": "biome format --write src package.json tsconfig.json biome.json astro.config.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "verify": "pnpm check && pnpm typecheck && pnpm lint && pnpm build"
+  },
+  "dependencies": {
+    "astro": "7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@biomejs/biome": "2.5.13",
+    "typescript": "5.9.3"
+  }
+}

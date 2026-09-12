@@ -1,0 +1,20 @@
+---
+interface Props {
+  readonly id: string;
+  readonly tone?: "canvas" | "pine";
+  readonly ruled?: boolean;
+}
+
+const { id, tone = "canvas", ruled = false } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class:list={["section", `section--${tone}`, { ruled }]}>
+  <div class="container"><slot /></div>
+</section>
+
+<style>
+  .section { padding-block: var(--section-space); }
+  .ruled { border-block-start: var(--border-width) solid var(--line); }
+  .section--pine { background: var(--pine); color: var(--canvas); }
+  .section--pine :global(:focus-visible) { outline-color: var(--canvas); }
+</style>

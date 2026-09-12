@@ -1,0 +1,25 @@
+---
+import { housingImages } from "../data/media";
+import { project } from "../data/project";
+import HousingCard from "./HousingCard.astro";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<Section id="hunian" ruled>
+  <SectionHeading id="hunian-title" title="Pilihan hunian"
+    intro="Kenali empat pilihan hunian yang tercantum pada informasi proyek." />
+  <aside class="housing-note" aria-label="Informasi yang perlu dikonfirmasi">
+    <p class="note-title">{project.verificationNote}.</p>
+    <p>Untuk harga, luas tanah dan bangunan, jumlah kamar, ketersediaan, serta dokumen legal, konfirmasikan langsung kepada tim marketing.</p>
+  </aside>
+  <div class="housing-grid">{housingImages.map((image) => <HousingCard image={image} />)}</div>
+</Section>
+
+<style>
+  .housing-note { padding-inline-start: var(--space-4); border-inline-start: var(--focus-width) solid var(--pine); margin-block-end: var(--space-8); }
+  .housing-note p { max-inline-size: 60ch; color: var(--muted); font-size: var(--text-small); }
+  .housing-note .note-title { color: var(--ink); font-weight: var(--weight-label); margin-block-end: var(--space-2); }
+  .housing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-10) var(--space-8); }
+  @media (max-width: 767px) { .housing-grid { grid-template-columns: minmax(0, 1fr); } }
+</style>

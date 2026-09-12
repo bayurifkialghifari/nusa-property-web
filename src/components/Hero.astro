@@ -1,0 +1,36 @@
+---
+import { heroImageSizes, projectImages } from "../data/media";
+import { marketingLink, project } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+import ProjectFigure from "./ProjectFigure.astro";
+---
+
+<section id="beranda" class="hero" aria-labelledby="hero-title">
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <p class="eyebrow">{project.name}</p>
+      <h1 id="hero-title">Temukan rumah Anda di Padalarang.</h1>
+      <p class="hero-intro">Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Diskusikan detailnya dengan tim marketing.</p>
+      <div class="hero-actions">
+        <ActionLink href={marketingLink} external>Hubungi marketing</ActionLink>
+        <ActionLink href="#hunian" variant="text" icon="arrow-right">Lihat pilihan hunian</ActionLink>
+      </div>
+      <p class="contact-hint">Percakapan dilanjutkan melalui WhatsApp.</p>
+    </div>
+    <ProjectFigure image={projectImages.gate} eager sizes={heroImageSizes} />
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: var(--space-16) var(--space-20); }
+  .hero-layout { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); align-items: center; gap: var(--space-12); }
+  .hero-copy { min-inline-size: 0; }
+  .eyebrow { margin-block-end: var(--space-4); color: var(--pine); font-size: var(--text-small); font-weight: var(--weight-label); }
+  .hero-intro { max-inline-size: 44ch; margin-block-start: var(--space-6); color: var(--muted); font-size: var(--text-lead); line-height: var(--leading-lead); }
+  .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3) var(--space-6); margin-block-start: var(--space-8); }
+  .contact-hint { margin-block-start: var(--space-3); color: var(--muted); font-size: var(--text-small); }
+  @media (max-width: 1023px) {
+    .hero { padding-block: var(--space-12) var(--space-14); }
+    .hero-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+  }
+</style>

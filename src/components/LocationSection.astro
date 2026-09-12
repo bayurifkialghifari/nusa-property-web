@@ -1,0 +1,31 @@
+---
+import { project } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<Section id="lokasi" ruled>
+  <SectionHeading id="lokasi-title" title="Lokasi di Padalarang" />
+  <div class="location-layout">
+    <div class="address-block">
+      <p class="location-label">{project.name}</p>
+      <address>{project.address}</address>
+      <ActionLink href={project.mapUrl} variant="secondary" icon="map-pin" external>Buka di Google Maps</ActionLink>
+    </div>
+    <div class="location-context">
+      <p>Informasi proyek menyebut kedekatan dengan Kota Baru Parahyangan, akses tol Padalarang, area perbelanjaan, pendidikan, dan layanan kesehatan.</p>
+      <p class="location-note">Gunakan tautan Google Maps untuk melihat titik lokasi dan menilai rute sesuai kebutuhan Anda.</p>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .location-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); }
+  .location-label { margin-block-end: var(--space-3); font-weight: var(--weight-heading); }
+  address { max-inline-size: 40ch; margin-block-end: var(--space-6); font-style: normal; font-size: var(--text-lead); line-height: var(--leading-lead); }
+  .location-context { border-block-start: var(--border-width) solid var(--line); padding-block-start: var(--space-5); }
+  .location-context p { color: var(--muted); }
+  .location-note { margin-block-start: var(--space-4); font-size: var(--text-small); }
+  @media (max-width: 767px) { .location-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
+</style>

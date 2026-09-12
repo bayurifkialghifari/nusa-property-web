@@ -1,0 +1,33 @@
+---
+import { brochureLink, marketingLink } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+import Section from "./Section.astro";
+---
+
+<Section id="kontak" tone="pine">
+  <div class="contact-layout">
+    <div>
+      <h2 id="kontak-title">Diskusikan pilihan hunian Anda.</h2>
+      <p class="contact-copy">Sampaikan hunian yang Anda minati atau minta brosur dan informasi harga kepada tim marketing.</p>
+    </div>
+    <div class="contact-actions">
+      <ActionLink href={marketingLink} variant="inverse" external>Hubungi marketing</ActionLink>
+      <ActionLink href={brochureLink} variant="text" class="brochure-link" external>Minta brosur &amp; harga</ActionLink>
+    </div>
+  </div>
+  <p class="contact-note">Percakapan dilanjutkan melalui WhatsApp. Harga, spesifikasi, ketersediaan, dan dokumen legal perlu dikonfirmasi kepada tim marketing.</p>
+</Section>
+
+<style>
+  .contact-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); align-items: center; gap: var(--space-12); }
+  h2 { max-inline-size: 20ch; }
+  .contact-copy { margin-block-start: var(--space-4); max-inline-size: 48ch; }
+  .contact-actions { display: flex; flex-direction: column; align-items: flex-start; justify-self: end; gap: var(--space-3); }
+  .contact-actions :global(.brochure-link) { color: var(--canvas); }
+  .contact-actions :global(.brochure-link:hover), .contact-actions :global(.brochure-link:active) { color: var(--canvas); }
+  .contact-note { margin-block-start: var(--space-8); max-inline-size: 76ch; font-size: var(--text-small); }
+  @media (max-width: 767px) {
+    .contact-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+    .contact-actions { justify-self: start; }
+  }
+</style>

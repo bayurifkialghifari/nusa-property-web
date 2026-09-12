@@ -1,0 +1,20 @@
+---
+import { marketingLink } from "../data/project";
+import ActionLink from "./ActionLink.astro";
+---
+
+<aside class="mobile-contact-bar" data-mobile-contact aria-label="Kontak marketing melalui WhatsApp">
+  <ActionLink href={marketingLink} icon="message-circle" external>Hubungi marketing</ActionLink>
+</aside>
+
+<script>
+  import "../scripts/mobile-contact";
+</script>
+
+<style>
+  .mobile-contact-bar { display: none; }
+  @media (max-width: 767px) {
+    .mobile-contact-bar { display: flex; position: fixed; inset-block-end: var(--space-0); inset-inline: var(--space-0); z-index: var(--z-mobile-action); min-block-size: var(--sticky-action-height); padding: var(--space-3) var(--page-gutter); padding-block-end: calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); border-block-start: var(--border-width) solid var(--line); background: var(--canvas); }
+    .mobile-contact-bar :global(.action-link) { inline-size: 100%; }
+  }
+</style>

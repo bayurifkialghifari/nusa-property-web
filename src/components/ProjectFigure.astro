@@ -1,0 +1,25 @@
+---
+import { cardImageSizes, type ProjectImage } from "../data/media";
+
+interface Props {
+  readonly image: ProjectImage;
+  readonly eager?: boolean;
+  readonly sizes?: string;
+}
+
+const { image, eager = false, sizes = cardImageSizes } = Astro.props;
+---
+
+<figure>
+  <img src={`/images/${image.file}.webp`}
+    srcset={`/images/${image.file}-640.webp 640w, /images/${image.file}.webp 1200w`}
+    sizes={sizes} width={image.width} height={image.height} alt={image.alt}
+    loading={eager ? "eager" : "lazy"} fetchpriority={eager ? "high" : "auto"} decoding="async" />
+  <figcaption>Visualisasi proyek</figcaption>
+</figure>
+
+<style>
+  figure { min-inline-size: 0; }
+  img { inline-size: 100%; block-size: auto; border-radius: var(--radius); background: var(--line); }
+  figcaption { margin-block-start: var(--space-2); color: var(--muted); font-size: var(--text-small); line-height: var(--leading-small); }
+</style>
