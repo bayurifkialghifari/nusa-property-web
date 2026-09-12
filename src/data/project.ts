@@ -1,5 +1,5 @@
 export const project = {
-  name: "G-Land Padalarang Residence",
+  name: "Nusa Property",
   address: "Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang",
   whatsapp: "6280000000000",
   phoneDisplay: "+62 800-0000-0000 (Demo)",
@@ -15,9 +15,9 @@ export function whatsappLink(message: string): string {
 }
 
 export const marketingLink = whatsappLink(
-  "Halo, saya ingin mendapat informasi tentang pilihan hunian G-Land Padalarang Residence.",
+  "Halo, saya ingin mendapat informasi tentang pilihan hunian dari Nusa Property.",
 );
 
 export const brochureLink = whatsappLink(
-  "Halo, saya ingin meminta brosur dan informasi harga G-Land Padalarang Residence.",
+  "Halo, saya ingin meminta brosur dan informasi harga dari Nusa Property.",
 );

@@ -1,4 +1,4 @@
-# G-Land Padalarang Residence — Asset Provenance
+# Nusa Property — Asset Provenance
 
 Prepared and verified locally on 2026-09-12. The local public URL root maps to `public/` in this workspace. These are source-derived assets for the approved landing-page evaluation, not proof of on-site condition or clearance for public reuse.
 
@@ -51,7 +51,7 @@ All other assets show architectural facades, not a verified map, park or shared-
 
 | Stem | Suggested alt text | Visual inspection / focal guidance |
 | --- | --- | --- |
-| gate | Visualisasi gerbang G-Land Padalarang Residence dengan papan nama proyek. | Full signage, landscaping and both frame edges remain visible. Never tall-crop. |
+| gate | Visualisasi gerbang masuk kawasan hunian dengan papan nama proyek. | Full signage, landscaping and both frame edges remain visible. Never tall-crop. |
 | cozy | Visualisasi fasad Blok P Cozy Level. | Frontal facade row; center if a slight standardized wide crop is needed. Keep roofline and frontage. |
 | superimposed | Visualisasi fasad Blok P Superimposed. | Angled facade row; preserve the upper-left roof edge and lower frontage. Full landscape preferred. |
 | ebony | Visualisasi deretan hunian Cluster Ebony. | Angled facade row; retain upper architecture and lower access area. |

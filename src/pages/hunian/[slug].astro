@@ -24,13 +24,13 @@ interface Props {
 
 const { option } = Astro.props;
 const inquiryLink = whatsappLink(
-  `Halo, saya tertarik dengan ${option.title} di G-Land Padalarang Residence.`,
+  `Halo, saya tertarik dengan ${option.title} yang ditampilkan Nusa Property.`,
 );
 const relatedOptions = housingOptions.filter((candidate) => candidate.slug !== option.slug);
 ---
 
 <PageLayout
-  title={`${option.title} | G-Land Padalarang Residence`}
+  title={`${option.title} | Nusa Property`}
   description={`${option.summary} Lihat visualisasi proyek dan preview 3D konseptual.`}
   socialImagePath={`/images/${option.image.file}.webp`}
 >

@@ -1,12 +1,12 @@
-# G-Land Padalarang Residence — Stitch Prompt
+# Nusa Property — Stitch Prompt
 
 Prepared 2026-09-12. Copy the complete prompt below into Stitch. It is self-contained: no skill files, previous conversation or repository document is required to interpret it. This deliverable is the prompt only; Stitch has not been invoked and no generated design or live site is claimed as tested.
 
 ```text
-Design the actual desktop, tablet and mobile screens for a calm, credible, quiet-premium multi-page property website: G-Land Padalarang Residence. Include one landing page and reusable detail-page designs for each housing option. Use the approved visual and content contract below. Instructions are in English; all customer-facing page copy must be Indonesian. Create the requested screens, not only a strategy essay. This is a design task: do not deploy, submit contact forms, send WhatsApp messages or publish anything.
+Design the actual desktop, tablet and mobile screens for a calm, credible, quiet-premium multi-page property website: Nusa Property. Include one landing page and reusable detail-page designs for each housing option. Use the approved visual and content contract below. Instructions are in English; all customer-facing page copy must be Indonesian. Create the requested screens, not only a strategy essay. This is a design task: do not deploy, submit contact forms, send WhatsApp messages or publish anything.
 
 PROJECT AND BUYER
-Business/product: G-Land Padalarang Residence, a residential project in Padalarang, Indonesia.
+Business/product: Nusa Property, a general property showcase currently featuring a residential project in Padalarang, Indonesia.
 Audience assumption: Indonesian-speaking prospective home buyers and households comparing location and housing options. This is an assumption for design, not a claimed research finding.
 Main task: understand the project, compare the four source-listed housing labels, open a detail page, explore a conceptual 3D house preview, review facilities and location, then try a clearly labelled demo contact flow.
 Primary action: “WhatsApp demo” through a dummy WhatsApp number.
@@ -14,7 +14,7 @@ Secondary hero action: “Lihat pilihan hunian”, an in-page anchor.
 Buyer uncertainty: suitability, current specifications, price, availability, legal evidence and actual condition. A home is a consequential financial decision; an inquiry is the appropriate next step. Do not reduce the page to a slogan and contact button or hide material unknowns to make it look minimal.
 
 KNOWN CONTENT, NOT A LICENSE TO INFER
-- Project name: G-Land Padalarang Residence.
+- Website brand: Nusa Property.
 - Address, exactly: Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang.
 - Four housing labels, exactly: Blok P Cozy Level; Blok P Superimposed; Cluster Ebony; Blok Q. These are source-listed labels, not verified current inventory.
 - Source-listed facilities: masjid; ruko; taman bermain; akses satu gerbang (one-gate); keamanan 24 jam. Attribute facilities to the project information and ask visitors to confirm current details. Do not turn the security description into a safety guarantee.
@@ -76,16 +76,16 @@ Use the gate as the hero image, uncropped at its native landscape ratio. The sou
 
 APPROVED PAGE ORDER AND INDONESIAN COPY
 1. HEADER
-Text wordmark: “G-Land”, with the supporting name “Padalarang Residence”. Do not invent an official graphic logo or certification mark.
+Text wordmark: “Nusa”, with the supporting name “Property”. Do not invent an official graphic logo or certification mark.
 Home anchor: #beranda.
 Navigation labels and anchors: “Pilihan hunian” → #hunian; “Fasilitas” → #fasilitas; “Galeri” → #galeri; “Lokasi” → #lokasi.
 Primary action: “WhatsApp demo”.
 Mobile disclosure label: “Menu”.
 
 2. HERO / #beranda
-Eyebrow: “G-Land Padalarang Residence”.
+Eyebrow: “Nusa Property”.
 The ONLY H1 must be exactly: “Temukan rumah Anda di Padalarang.”
-Lead: “Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence melalui demo interaktif ini.”
+Lead: “Kenali pilihan hunian, fasilitas, dan lokasi pilihan bersama Nusa Property melalui demo interaktif ini.”
 Primary CTA: “WhatsApp demo”.
 Secondary CTA: “Lihat pilihan hunian”, links to #hunian.
 Right image: full landscape gate, with visible caption “Visualisasi proyek”.
@@ -140,8 +140,8 @@ Do not invent legal pages, developer credentials, awards, office hours, testimon
 
 CONTACT BEHAVIOR
 Primary destination: https://wa.me/6280000000000
-Optional primary message: “Halo, saya ingin informasi G-Land Padalarang Residence.”
-Optional brochure message: “Halo, saya ingin meminta brosur dan informasi harga G-Land Padalarang Residence.”
+Optional primary message: “Halo, saya ingin informasi properti dari Nusa Property.”
+Optional brochure message: “Halo, saya ingin meminta brosur dan informasi harga dari Nusa Property.”
 Option messages may include the exact housing label only, without assumed specifications or availability. URL-encode the message in the query string. The visitor opens WhatsApp and chooses whether to send it. No automated sending, contact storage, fake submission, artificial urgency, “free” consultation promise or response-time guarantee.
 Use real anchors for navigation/external destinations and buttons only for genuine local state changes. Make WhatsApp/Google Maps context clear. If a destination opens a new tab, include a consistent accessible new-tab hint and rel=noopener noreferrer.
 
@@ -183,7 +183,7 @@ Use the local files when attached. Otherwise these exact source URLs identify th
 - environment-3: https://www.ganproperti.com/dokumen/proyek/aa4c8-Gemini_Generated_Image_kmg6i1kmg6i1kmg6_11zon.jpg
 If an input is inaccessible, report exactly which asset is needed in the design notes; do not invent replacement real-project photographs or pretend a source was inspected. All eight visuals remain labelled “Visualisasi proyek”, including the edited image.
 
-Alt text examples: “Visualisasi gerbang G-Land Padalarang Residence dengan papan nama proyek.”; “Visualisasi fasad Blok P Cozy Level.”; “Visualisasi fasad Blok P Superimposed.”; “Visualisasi deretan hunian Cluster Ebony.”; “Visualisasi fasad hunian Blok Q.” Environment-image alt text describes only the visible facade/access area, not an inferred cluster or amenity.
+Alt text examples: “Visualisasi gerbang masuk kawasan hunian dengan papan nama proyek.”; “Visualisasi fasad Blok P Cozy Level.”; “Visualisasi fasad Blok P Superimposed.”; “Visualisasi deretan hunian Cluster Ebony.”; “Visualisasi fasad hunian Blok Q.” Environment-image alt text describes only the visible facade/access area, not an inferred cluster or amenity.
 
 Keep native wide composition for non-hero images. A standardized 16:9 centered housing frame may trim a small edge area; no tall crops removing roof/frontage/access context. Dialogs always show the complete image. No object removal, recoloring, mirroring, baked text or fake visual proof.
 

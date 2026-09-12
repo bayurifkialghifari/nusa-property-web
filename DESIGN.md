@@ -1,4 +1,4 @@
-# G-Land Padalarang Residence — Design Contract
+# Nusa Property — Design Contract
 
 Status: READY for implementation. Issued 2026-09-12. This contract precedes UI code; asset verification is recorded separately in ASSETS.md.
 
@@ -27,8 +27,8 @@ A composed, readable residential-project page for people evaluating a home in Pa
 
 | Order / anchor | Buyer-facing job | Required content |
 | --- | --- | --- |
-| Header / #beranda | Identify and navigate | Text wordmark “G-Land” with “Padalarang Residence”; nav “Pilihan hunian”, “Fasilitas”, “Galeri”, “Lokasi”; primary marketing link |
-| Hero / #beranda | Explain and orient | Eyebrow “G-Land Padalarang Residence”; one H1 exactly “Temukan rumah Anda di Padalarang.”; supporting text “Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Diskusikan detailnya dengan tim marketing.”; two approved CTAs; gate image and visible “Visualisasi proyek” caption |
+| Header / #beranda | Identify and navigate | Text wordmark “Nusa” with “Property”; nav “Pilihan hunian”, “Fasilitas”, “Galeri”, “Lokasi”; primary marketing link |
+| Hero / #beranda | Explain and orient | Eyebrow “Nusa Property”; one H1 exactly “Temukan rumah Anda di Padalarang.”; supporting text “Kenali pilihan hunian, fasilitas, dan lokasi pilihan bersama Nusa Property. Diskusikan detailnya dengan tim marketing.”; two approved CTAs; gate image and visible “Visualisasi proyek” caption |
 | Housing / #hunian | Help distinguish options | H2 “Pilihan hunian”; four H3 labels exactly “Blok P Cozy Level”, “Blok P Superimposed”, “Cluster Ebony”, “Blok Q”; one associated image each; a local detail-page link; context-aware marketing link; no invented specification rows |
 | Housing detail / /hunian/{slug} | Compare one option in depth | Breadcrumb, source image, descriptive visual notes, interactive conceptual 3D preview, confirmation checklist, adjacent housing navigation and dummy WhatsApp route |
 | Facilities / #fasilitas | Explain source-listed amenities | H2 “Fasilitas lingkungan”; masjid, ruko, taman bermain, akses satu gerbang (one-gate), keamanan 24 jam; compact list, not five decorative cards |

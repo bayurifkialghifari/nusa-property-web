@@ -1,4 +1,4 @@
-# G-Land Padalarang Residence
+# Nusa Property
 
 Website properti multi-page berbahasa Indonesia, dibangun dengan Astro, TypeScript strict, CSS, serta React Three Fiber khusus untuk preview 3D pada halaman detail. Tidak ada backend kontak, analitik, embed peta, atau permintaan pihak ketiga saat halaman pertama dimuat.
 
