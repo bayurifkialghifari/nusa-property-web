@@ -29,6 +29,7 @@
   --tracking-tight: -0.04em;
   --tracking-heading: -0.025em;
   --tracking-card: -0.015em;
+  --tracking-eyebrow: 0.08em;
   --tracking-body: 0;
   --space-0: 0;
   --space-1: 4px;
@@ -56,6 +57,8 @@
   --sticky-action-height: 72px;
   --sticky-reserve: 88px;
   --dialog-max: 1000px;
+  --viewer-min-height: 360px;
+  --viewer-min-height-mobile: 320px;
   --z-header: 10;
   --z-mobile-action: 20;
   --motion-feedback: 120ms;

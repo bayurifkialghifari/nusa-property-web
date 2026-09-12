@@ -2,16 +2,24 @@
 import { project } from "../data/project";
 import "../styles/global.css";
 
-const title = "G-Land Padalarang Residence | Pilihan Hunian di Padalarang";
-const description = "Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Hubungi marketing melalui WhatsApp untuk mengonfirmasi harga, spesifikasi, dan ketersediaan.";
+interface Props {
+  readonly title?: string;
+  readonly description?: string;
+  readonly socialImagePath?: string;
+}
+
+const {
+  title = "G-Land Padalarang Residence | Pilihan Hunian di Padalarang",
+  description = "Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Lihat visualisasi dan preview 3D konseptual setiap tipe.",
+  socialImagePath = "/images/gate.webp",
+} = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
-const socialImage = Astro.site ? new URL("/images/gate.webp", Astro.site).href : undefined;
+const socialImage = Astro.site ? new URL(socialImagePath, Astro.site).href : undefined;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Place",
   name: project.name,
   address: project.address,
-  telephone: `+${project.whatsapp}`,
   geo: {
     "@type": "GeoCoordinates",
     latitude: project.latitude,

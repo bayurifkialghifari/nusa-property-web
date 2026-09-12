@@ -1,5 +1,5 @@
 ---
-import { housingImages } from "../data/media";
+import { housingOptions } from "../data/housing";
 import { project } from "../data/project";
 import HousingCard from "./HousingCard.astro";
 import Section from "./Section.astro";
@@ -13,7 +13,7 @@ import SectionHeading from "./SectionHeading.astro";
     <p class="note-title">{project.verificationNote}.</p>
     <p>Untuk harga, luas tanah dan bangunan, jumlah kamar, ketersediaan, serta dokumen legal, konfirmasikan langsung kepada tim marketing.</p>
   </aside>
-  <div class="housing-grid">{housingImages.map((image) => <HousingCard image={image} />)}</div>
+  <div class="housing-grid">{housingOptions.map((option) => <HousingCard option={option} />)}</div>
 </Section>
 
 <style>

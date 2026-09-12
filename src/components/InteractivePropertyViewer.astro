@@ -1,0 +1,55 @@
+---
+import type { HouseVariant } from "../data/housing";
+import { PropertyViewer } from "./three/PropertyViewer";
+
+interface Props {
+  readonly propertyName: string;
+  readonly variant: HouseVariant;
+}
+
+const { propertyName, variant } = Astro.props;
+---
+
+<section class="viewer-section" aria-labelledby="preview-3d-title">
+  <div class="container">
+    <div class="viewer-heading">
+      <div>
+        <p class="eyebrow">Preview interaktif</p>
+        <h2 id="preview-3d-title">Lihat bentuk dari berbagai sudut.</h2>
+      </div>
+      <p>
+        Drag untuk memutar dan scroll atau pinch untuk zoom. Model ini merupakan interpretasi
+        konseptual dari visual proyek, bukan gambar teknis atau representasi ukuran sebenarnya.
+      </p>
+    </div>
+    <div class="viewer-frame">
+      <PropertyViewer client:only="react" propertyName={propertyName} variant={variant}>
+        <p slot="fallback" class="viewer-fallback">Menyiapkan preview 3D…</p>
+      </PropertyViewer>
+    </div>
+  </div>
+</section>
+
+<style>
+  .viewer-section { padding-block: var(--section-space); border-block-start: var(--border-width) solid var(--line); }
+  .viewer-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); align-items: end; gap: var(--space-12); margin-block-end: var(--space-8); }
+  .viewer-heading > p { color: var(--muted); }
+  .eyebrow { margin-block-end: var(--space-3); color: var(--pine); font-size: var(--text-small); font-weight: var(--weight-label); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); }
+  .viewer-frame { overflow: hidden; aspect-ratio: 16 / 9; border: var(--border-width) solid var(--line); border-radius: var(--radius); background: var(--canvas); }
+  .viewer-fallback { display: grid; place-items: center; block-size: 100%; min-block-size: var(--viewer-min-height); color: var(--muted); }
+  :global(.property-viewer) { position: relative; block-size: 100%; min-block-size: var(--viewer-min-height); }
+  :global(.property-viewer__canvas) { block-size: 100%; min-block-size: var(--viewer-min-height); touch-action: none; }
+  :global(.property-viewer__canvas canvas) { display: block; inline-size: 100%; block-size: 100%; }
+  :global(.property-viewer__controls) { position: absolute; inset-inline: var(--space-4); inset-block-end: var(--space-4); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); margin: var(--space-0); padding: var(--space-0); border: 0; }
+  :global(.property-viewer__controls button) { min-block-size: var(--touch-min); padding: var(--space-2) var(--space-4); border: var(--border-width) solid var(--pine); border-radius: var(--radius); background: var(--canvas); color: var(--pine); font-weight: var(--weight-heading); }
+  :global(.property-viewer__controls button:hover) { background: var(--line); }
+  :global(.property-viewer__controls button:active) { transform: translateY(var(--press-offset)); }
+  @media (max-width: 767px) {
+    .viewer-heading { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+    .viewer-frame { aspect-ratio: 4 / 3; }
+    :global(.property-viewer), :global(.property-viewer__canvas), .viewer-fallback { min-block-size: var(--viewer-min-height-mobile); }
+    :global(.property-viewer__controls) { inset-inline: var(--space-3); inset-block-end: var(--space-3); }
+    :global(.property-viewer__controls button) { flex: 1 1 auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { :global(.property-viewer__controls button:active) { transform: none; } }
+</style>

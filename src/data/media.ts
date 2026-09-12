@@ -65,13 +65,6 @@ export const projectImages = {
   },
 } as const satisfies Record<string, ProjectImage>;
 
-export const housingImages = [
-  projectImages.cozy,
-  projectImages.superimposed,
-  projectImages.ebony,
-  projectImages.blokQ,
-] as const;
-
 export const galleryImages = [
   projectImages.gate,
   projectImages.environment1,

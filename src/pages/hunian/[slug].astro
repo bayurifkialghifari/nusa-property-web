@@ -1,0 +1,126 @@
+---
+import ActionLink from "../../components/ActionLink.astro";
+import ContactSection from "../../components/ContactSection.astro";
+import HousingCard from "../../components/HousingCard.astro";
+import InteractivePropertyViewer from "../../components/InteractivePropertyViewer.astro";
+import MobileContactBar from "../../components/MobileContactBar.astro";
+import ProjectFigure from "../../components/ProjectFigure.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { housingOptions, type HousingOption } from "../../data/housing";
+import { whatsappLink } from "../../data/project";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+export function getStaticPaths() {
+  return housingOptions.map((option) => ({
+    params: { slug: option.slug },
+    props: { option },
+  }));
+}
+
+interface Props {
+  readonly option: HousingOption;
+}
+
+const { option } = Astro.props;
+const inquiryLink = whatsappLink(
+  `Halo, saya tertarik dengan ${option.title} di G-Land Padalarang Residence.`,
+);
+const relatedOptions = housingOptions.filter((candidate) => candidate.slug !== option.slug);
+---
+
+<PageLayout
+  title={`${option.title} | G-Land Padalarang Residence`}
+  description={`${option.summary} Lihat visualisasi proyek dan preview 3D konseptual.`}
+  socialImagePath={`/images/${option.image.file}.webp`}
+>
+  <SiteHeader />
+  <main id="konten" tabindex="-1">
+    <section class="detail-hero" aria-labelledby="detail-title">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Beranda</a><span aria-hidden="true">/</span><span>{option.title}</span>
+        </nav>
+        <div class="detail-grid">
+          <div class="detail-copy">
+            <p class="eyebrow">{option.eyebrow}</p>
+            <h1 id="detail-title">{option.title}</h1>
+            <p class="lead">{option.summary}</p>
+            <p class="detail-note">
+              Informasi ukuran, denah, harga, legalitas, dan ketersediaan belum diverifikasi pada
+              demo ini.
+            </p>
+            <div class="detail-actions">
+              <ActionLink href="#preview-3d-title" icon="arrow-down">Lihat preview 3D</ActionLink>
+              <ActionLink href={inquiryLink} variant="secondary" external>WhatsApp demo</ActionLink>
+            </div>
+          </div>
+          <ProjectFigure image={option.image} eager sizes="(min-width: 1024px) 584px, calc(100vw - 40px)" />
+        </div>
+      </div>
+    </section>
+
+    <InteractivePropertyViewer propertyName={option.title} variant={option.modelVariant} />
+
+    <section class="visual-notes" aria-labelledby="visual-notes-title">
+      <div class="container notes-grid">
+        <div>
+          <p class="eyebrow">Yang terlihat pada materi proyek</p>
+          <h2 id="visual-notes-title">Karakter visual {option.title}</h2>
+        </div>
+        <div>
+          <ul>{option.visualNotes.map((note) => <li>{note}</li>)}</ul>
+          <p class="confirmation-note">
+            Catatan ini hanya menjelaskan tampilan pada visual proyek. Konfirmasikan spesifikasi
+            bangunan dan kondisi aktual kepada pengelola proyek.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="related" aria-labelledby="related-title">
+      <div class="container">
+        <div class="related-heading">
+          <p class="eyebrow">Pilihan lain</p>
+          <h2 id="related-title">Lihat tipe hunian lainnya.</h2>
+        </div>
+        <div class="related-grid">
+          {relatedOptions.map((relatedOption) => <HousingCard option={relatedOption} />)}
+        </div>
+      </div>
+    </section>
+
+    <ContactSection />
+  </main>
+  <SiteFooter />
+  <MobileContactBar />
+</PageLayout>
+
+<style>
+  .detail-hero { padding-block: var(--space-8) var(--section-space); }
+  .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-block-end: var(--space-10); color: var(--muted); font-size: var(--text-small); }
+  .breadcrumb a { min-block-size: var(--touch-min); display: inline-flex; align-items: center; }
+  .detail-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: center; gap: var(--space-12); }
+  .detail-copy { min-inline-size: 0; }
+  .eyebrow { margin-block-end: var(--space-3); color: var(--pine); font-size: var(--text-small); font-weight: var(--weight-label); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); }
+  .lead { margin-block-start: var(--space-5); color: var(--muted); font-size: var(--text-lead); line-height: var(--leading-lead); }
+  .detail-note { margin-block-start: var(--space-5); padding-inline-start: var(--space-4); border-inline-start: var(--focus-width) solid var(--pine); color: var(--muted); font-size: var(--text-small); }
+  .detail-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-block-start: var(--space-6); }
+  .visual-notes, .related { padding-block: var(--section-space); border-block-start: var(--border-width) solid var(--line); }
+  .notes-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-12); }
+  ul { margin: var(--space-0); padding-inline-start: var(--space-6); }
+  li { padding-block: var(--space-3); border-block-end: var(--border-width) solid var(--line); }
+  .confirmation-note { margin-block-start: var(--space-5); color: var(--muted); font-size: var(--text-small); }
+  .related-heading { margin-block-end: var(--space-8); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+  @media (max-width: 1023px) {
+    .detail-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+    .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .detail-hero { padding-block-start: var(--space-5); }
+    .breadcrumb { margin-block-end: var(--space-6); }
+    .notes-grid, .related-grid { grid-template-columns: minmax(0, 1fr); }
+    .notes-grid { gap: var(--space-6); }
+  }
+</style>

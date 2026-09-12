@@ -1,6 +1,6 @@
 # G-Land Padalarang Residence
 
-Satu halaman statis berbahasa Indonesia, dibangun dengan Astro, TypeScript strict, dan CSS. Tidak ada React, backend kontak, analitik, embed peta, atau permintaan pihak ketiga saat halaman pertama dimuat.
+Website properti multi-page berbahasa Indonesia, dibangun dengan Astro, TypeScript strict, CSS, serta React Three Fiber khusus untuk preview 3D pada halaman detail. Tidak ada backend kontak, analitik, embed peta, atau permintaan pihak ketiga saat halaman pertama dimuat.
 
 ## Menjalankan
 
@@ -34,8 +34,9 @@ Atau jalankan `pnpm verify`. `astro check` memeriksa komponen Astro; `tsc --noEm
 ## Struktur
 
 - `src/pages/index.astro`: susunan halaman.
+- `src/pages/hunian/[slug].astro`: empat halaman detail hunian yang dibuat secara statis.
 - `src/layouts/`: dokumen HTML, metadata, dan structured data.
-- `src/components/`: komponen bagian, tombol/link, ikon, kartu, dan galeri.
+- `src/components/`: komponen bagian, tombol/link, ikon, kartu, galeri, dan viewer 3D.
 - `src/data/`: fakta proyek dan pilihan hunian.
 - `src/scripts/`: peningkatan progresif navigasi dan dialog gambar.
 - `src/styles/`: token dan fondasi CSS; gaya khusus komponen berada di komponennya.
@@ -48,9 +49,9 @@ Sumber konten: https://www.ganproperti.com/proyek.php?proyek=30. Sumber menjadi 
 
 Semua visual proyek diberi label **Visualisasi proyek**. Harga, spesifikasi, dan ketersediaan tidak diasumsikan. Fasilitas yang tercantum pada sumber tetap perlu dikonfirmasi dengan marketing.
 
-Tombol kontak membuka WhatsApp ke `6281232385000` dengan pesan sesuai konteks. **Minta brosur & harga** meminta informasi melalui WhatsApp, bukan mengunduh berkas. Tidak ada formulir, pengiriman data otomatis, penyimpanan kontak, atau janji waktu respons. Peta dibuka hanya setelah pengunjung memilih tautan Google Maps dengan koordinat `-6.850577,107.4743523`.
+Tombol kontak membuka WhatsApp demo ke nomor dummy `6280000000000` dengan pesan sesuai konteks. **Minta brosur & harga** memakai alur demo yang sama, bukan mengunduh berkas. Tidak ada formulir, pengiriman data otomatis, penyimpanan kontak, atau janji waktu respons. Peta dibuka hanya setelah pengunjung memilih tautan Google Maps dengan koordinat `-6.850577,107.4743523`.
 
-Galeri menggunakan tautan gambar biasa, ditingkatkan menjadi dialog native bila JavaScript tersedia. Navigasi dan seluruh informasi penting tetap tersedia tanpa JavaScript. Tautan eksternal membuka tab baru dengan `rel="noopener noreferrer"`.
+Setiap kartu hunian memiliki halaman detail dengan gambar sumber, catatan visual, dan model 3D konseptual yang dapat diputar serta di-zoom. Galeri menggunakan tautan gambar biasa, ditingkatkan menjadi dialog native bila JavaScript tersedia. Navigasi dan seluruh informasi penting tetap tersedia tanpa JavaScript. Tautan eksternal membuka tab baru dengan `rel="noopener noreferrer"`.
 
 ## Pemeriksaan manual sebelum rilis
 
@@ -67,7 +68,7 @@ Galeri menggunakan tautan gambar biasa, ditingkatkan menjadi dialog native bila 
 ## Checklist peluncuran
 
 - Konfirmasi izin publikasi dan penggunaan ulang semua gambar/font sesuai `ASSETS.md`.
-- Konfirmasi nomor marketing, alamat, fasilitas terkini, spesifikasi, harga, dan ketersediaan dengan pemilik proyek.
+- Ganti nomor dummy dengan kontak resmi hanya setelah otorisasi pemilik proyek dikonfirmasi.
 - Pastikan visualisasi tidak disajikan sebagai foto kondisi aktual atau janji unit yang tersedia.
 - Atur properti `site` pada `astro.config.mjs` hanya setelah hostname produksi disetujui; metadata URL absolut dan canonical mengikuti nilai tersebut. Tidak ada domain rekaan di prototipe.
 - Jalankan instalasi bersih menggunakan lockfile dan seluruh pemeriksaan di atas.

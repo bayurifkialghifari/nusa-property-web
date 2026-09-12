@@ -89,7 +89,7 @@ Only the local font may be preloaded: `as="font" type="font/woff2" crossorigin`.
 
 ## Contact and location provenance
 
-- Supplied and present in retrieved source HTML: WhatsApp phone `6281232385000`; display `+62 812-3238-5000`. Use `https://wa.me/6281232385000` with an optional URL-encoded inquiry message. This is an outbound link, not an automatic message or lead submission.
+- The source page contained a marketing contact, but this demo deliberately does not reproduce it. Use dummy destination `https://wa.me/6280000000000` and display `+62 800-0000-0000 (Demo)` until the project owner authorizes an official contact.
 - Supplied and present in retrieved source HTML: coordinates `-6.850577,107.4743523`. Link: `https://www.google.com/maps/search/?api=1&query=-6.850577%2C107.4743523`. No map embed or fictional map asset.
 - User-approved address normalization: “Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang”. No additional administrative, distance, postal-code or commute claims were inferred.
 - “Minta brosur & harga” opens WhatsApp with an inquiry. There is no verified brochure file in this inventory and no guaranteed download or response time.

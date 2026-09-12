@@ -1,8 +1,8 @@
 export const project = {
   name: "G-Land Padalarang Residence",
   address: "Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang",
-  whatsapp: "6281232385000",
-  phoneDisplay: "+62 812-3238-5000",
+  whatsapp: "6280000000000",
+  phoneDisplay: "+62 800-0000-0000 (Demo)",
   latitude: -6.850577,
   longitude: 107.4743523,
   sourceUrl: "https://www.ganproperti.com/proyek.php?proyek=30",
@@ -15,9 +15,9 @@ export function whatsappLink(message: string): string {
 }
 
 export const marketingLink = whatsappLink(
-  "Halo tim marketing G-Land Padalarang Residence, saya ingin mendapat informasi tentang pilihan hunian. Bisa dibantu?",
+  "Halo, saya ingin mendapat informasi tentang pilihan hunian G-Land Padalarang Residence.",
 );
 
 export const brochureLink = whatsappLink(
-  "Halo tim marketing G-Land Padalarang Residence, saya ingin meminta brosur dan daftar harga terkini. Mohon informasi spesifikasi dan ketersediaan huniannya juga. Terima kasih.",
+  "Halo, saya ingin meminta brosur dan informasi harga G-Land Padalarang Residence.",
 );

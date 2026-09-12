@@ -3,13 +3,13 @@
 Prepared 2026-09-12. Copy the complete prompt below into Stitch. It is self-contained: no skill files, previous conversation or repository document is required to interpret it. This deliverable is the prompt only; Stitch has not been invoked and no generated design or live site is claimed as tested.
 
 ```text
-Design the actual desktop, tablet and mobile screens for ONE calm, credible, quiet-premium landing page: G-Land Padalarang Residence. Use the approved visual and content contract below. Instructions are in English; all customer-facing page copy must be Indonesian. Create the requested screens, not only a strategy essay. This is a design task: do not deploy, submit contact forms, send WhatsApp messages or publish anything.
+Design the actual desktop, tablet and mobile screens for a calm, credible, quiet-premium multi-page property website: G-Land Padalarang Residence. Include one landing page and reusable detail-page designs for each housing option. Use the approved visual and content contract below. Instructions are in English; all customer-facing page copy must be Indonesian. Create the requested screens, not only a strategy essay. This is a design task: do not deploy, submit contact forms, send WhatsApp messages or publish anything.
 
 PROJECT AND BUYER
 Business/product: G-Land Padalarang Residence, a residential project in Padalarang, Indonesia.
 Audience assumption: Indonesian-speaking prospective home buyers and households comparing location and housing options. This is an assumption for design, not a claimed research finding.
-Main task: understand the project, compare the four source-listed housing labels, review the source-listed facilities and location, then ask marketing for verified details.
-Primary action: “Hubungi marketing” through WhatsApp.
+Main task: understand the project, compare the four source-listed housing labels, open a detail page, explore a conceptual 3D house preview, review facilities and location, then try a clearly labelled demo contact flow.
+Primary action: “WhatsApp demo” through a dummy WhatsApp number.
 Secondary hero action: “Lihat pilihan hunian”, an in-page anchor.
 Buyer uncertainty: suitability, current specifications, price, availability, legal evidence and actual condition. A home is a consequential financial decision; an inquiry is the appropriate next step. Do not reduce the page to a slogan and contact button or hide material unknowns to make it look minimal.
 
@@ -19,7 +19,7 @@ KNOWN CONTENT, NOT A LICENSE TO INFER
 - Four housing labels, exactly: Blok P Cozy Level; Blok P Superimposed; Cluster Ebony; Blok Q. These are source-listed labels, not verified current inventory.
 - Source-listed facilities: masjid; ruko; taman bermain; akses satu gerbang (one-gate); keamanan 24 jam. Attribute facilities to the project information and ask visitors to confirm current details. Do not turn the security description into a safety guarantee.
 - Qualitative proximity stated by the source: Kota Baru Parahyangan, akses tol Padalarang, area perbelanjaan, pendidikan, dan layanan kesehatan. No travel times or added distances.
-- WhatsApp number: 6281232385000. Visible format: +62 812-3238-5000.
+- Dummy WhatsApp number: 6280000000000. Visible format: +62 800-0000-0000 (Demo). Never present it as an active marketing contact.
 - Map coordinates: -6.850577,107.4743523.
 - Prices, land/building dimensions, bedroom/bathroom counts, floor plans, financing, availability, legal status/documents, completion and response times: not yet verified. Do not invent them.
 - Actual visual condition and permission to reuse source images: not yet established. The project owner must confirm image reuse rights, contact authorization and map suitability before public launch.
@@ -79,14 +79,14 @@ APPROVED PAGE ORDER AND INDONESIAN COPY
 Text wordmark: “G-Land”, with the supporting name “Padalarang Residence”. Do not invent an official graphic logo or certification mark.
 Home anchor: #beranda.
 Navigation labels and anchors: “Pilihan hunian” → #hunian; “Fasilitas” → #fasilitas; “Galeri” → #galeri; “Lokasi” → #lokasi.
-Primary action: “Hubungi marketing”.
+Primary action: “WhatsApp demo”.
 Mobile disclosure label: “Menu”.
 
 2. HERO / #beranda
 Eyebrow: “G-Land Padalarang Residence”.
 The ONLY H1 must be exactly: “Temukan rumah Anda di Padalarang.”
-Lead: “Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Diskusikan detailnya dengan tim marketing.”
-Primary CTA: “Hubungi marketing”.
+Lead: “Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence melalui demo interaktif ini.”
+Primary CTA: “WhatsApp demo”.
 Secondary CTA: “Lihat pilihan hunian”, links to #hunian.
 Right image: full landscape gate, with visible caption “Visualisasi proyek”.
 
@@ -97,24 +97,28 @@ Four H3 labels, in this order, with the matching imagery:
 - “Blok P Superimposed” → /images/superimposed.webp.
 - “Cluster Ebony” → /images/ebony.webp.
 - “Blok Q” → /images/blok-q.webp.
-Each image has the visible caption “Visualisasi proyek”. Each option has a context-specific inquiry link such as “Tanyakan Blok P Cozy Level”. Do not make the whole article a nested clickable region.
+Each image has the visible caption “Visualisasi proyek”. Each option has a prominent local route labelled “Lihat detail & 3D” plus a context-specific dummy WhatsApp link such as “Tanyakan Blok P Cozy Level”. Do not make the whole article a nested clickable region.
 Visible note: “Untuk harga, luas tanah dan bangunan, jumlah kamar, ketersediaan, serta dokumen legal, konfirmasikan langsung kepada tim marketing.”
 No price cards, fake floor plans, beds/baths icons, area figures, stock counts, availability badges or “Ready” prefixes.
 
-4. FACILITIES / #fasilitas
+4. HOUSING DETAIL PAGES / /hunian/{slug}
+Create one reusable detail-page design populated for all four routes: /hunian/blok-p-cozy-level, /hunian/blok-p-superimposed, /hunian/cluster-ebony and /hunian/blok-q. Each page includes a breadcrumb, unique H1 and summary, the matching source image, visible unverified-information note, conceptual interactive 3D viewer, short visual-character list, links to the other housing options, contact section and mobile contact bar.
+The 3D viewer is a live canvas region, not a fake screenshot. Show visible controls “Putar kiri”, “Putar kanan” and “Reset tampilan”; pointer drag rotates, wheel/pinch zooms. Use a restrained procedural house model inspired by each facade with the same canvas/pine/ink/line palette and simple directional lighting. No perpetual auto-rotation. Directly disclose: “Model ini merupakan interpretasi konseptual dari visual proyek, bukan gambar teknis atau representasi ukuran sebenarnya.” Keep the source image as the factual visual reference and no-JS fallback.
+
+5. FACILITIES / #fasilitas
 H2: “Fasilitas lingkungan”.
 List: “Masjid”; “Ruko”; “Taman bermain”; “Akses satu gerbang (one-gate)”; “Keamanan 24 jam”.
 Visible note: “Fasilitas tercantum pada informasi proyek. Konfirmasikan kondisi dan detail terkininya kepada tim marketing.”
 These are source-listed amenities, not independently verified operational guarantees.
 
-5. GALLERY / #galeri
+6. GALLERY / #galeri
 H2: “Gambaran lingkungan”.
 Use the gate and environment-1, environment-2, environment-3 images. These depict project signage/facades; do not relabel them as parks, mosques or a specific housing cluster.
 Every figure has the visible caption “Visualisasi proyek” and meaningful descriptive alt text.
 Helper: “Visualisasi proyek dari materi pemasaran. Tampilan dan kondisi aktual perlu dikonfirmasi kepada tim marketing.”
 Image enlargement affordance: “Perbesar gambar”. Native dialog close action: “Tutup”.
 
-6. LOCATION / #lokasi
+7. LOCATION / #lokasi
 H2: “Lokasi di Padalarang”.
 Address: “Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang”.
 Copy: “Informasi proyek menyebut kedekatan dengan Kota Baru Parahyangan, akses tol Padalarang, area perbelanjaan, pendidikan, dan layanan kesehatan.”
@@ -122,27 +126,27 @@ Map action: “Buka di Google Maps”.
 Destination: https://www.google.com/maps/search/?api=1&query=-6.850577%2C107.4743523
 Map link ONLY. No iframe, live map embed, remote tiles, invented cartography, route-time widgets or initial third-party requests.
 
-7. CLOSING CONTACT / #kontak
-H2: “Diskusikan pilihan hunian Anda.”
-Primary CTA: “Hubungi marketing”.
+8. CLOSING CONTACT / #kontak
+H2: “Coba alur kontak properti.”
+Primary CTA: “WhatsApp demo”.
 Secondary contact route: “Minta brosur & harga”.
 Helper: “Percakapan dilanjutkan melalui WhatsApp. Harga, spesifikasi, ketersediaan, dan dokumen legal perlu dikonfirmasi kepada tim marketing.”
-Display phone: “+62 812-3238-5000”.
+Display phone: “+62 800-0000-0000 (Demo)”.
 “Minta brosur & harga” opens a WhatsApp inquiry, NOT a PDF download, form, fake success modal or instant brochure delivery. There is no contact backend.
 
-8. FOOTER
-Project name, approved address, marketing contact and a restrained source attribution link labelled “Informasi proyek”.
+9. FOOTER
+Project name, approved address, dummy WhatsApp contact and a restrained source attribution link labelled “Informasi proyek”.
 Do not invent legal pages, developer credentials, awards, office hours, testimonials, copyright ownership claims or a separate company address.
 
 CONTACT BEHAVIOR
-Primary destination: https://wa.me/6281232385000
+Primary destination: https://wa.me/6280000000000
 Optional primary message: “Halo, saya ingin informasi G-Land Padalarang Residence.”
 Optional brochure message: “Halo, saya ingin meminta brosur dan informasi harga G-Land Padalarang Residence.”
 Option messages may include the exact housing label only, without assumed specifications or availability. URL-encode the message in the query string. The visitor opens WhatsApp and chooses whether to send it. No automated sending, contact storage, fake submission, artificial urgency, “free” consultation promise or response-time guarantee.
 Use real anchors for navigation/external destinations and buttons only for genuine local state changes. Make WhatsApp/Google Maps context clear. If a destination opens a new tab, include a consistent accessible new-tab hint and rel=noopener noreferrer.
 
 MOBILE STICKY CTA AND SAFE AREA
-Below 768px, add one fixed bottom contact bar, canvas background with line top divider, containing a full-width “Hubungi marketing” primary action. Minimum height 72px excluding the safe area; horizontal padding 20px, vertical padding 12px plus env(safe-area-inset-bottom, 0px) at bottom.
+Below 768px, add one fixed bottom contact bar, canvas background with line top divider, containing a full-width “WhatsApp demo” primary action. Minimum height 72px excluding the safe area; horizontal padding 20px, vertical padding 12px plus env(safe-area-inset-bottom, 0px) at bottom.
 Reserve at least 88px plus env(safe-area-inset-bottom, 0px) below page content, and reserve the actual larger bar height if enlarged text makes it grow. Nothing essential, the footer, focused controls or dialog actions may hide behind the bar. Do not add a second floating WhatsApp bubble. The bar is absent at desktop widths.
 
 NATIVE ACCESSIBILITY AND NO-JS FALLBACK
@@ -191,13 +195,13 @@ DO NOT ADD
 No invented prices, dimensions, bedrooms, availability, “Ready” badges, financing, legal credentials, response times, travel times, distances, guarantees, urgency, customer logos, reviews, testimonials, awards, stock people, fake dashboards, random 3D objects, proof counters, pricing tables, unnecessary FAQs, newsletter forms or contact backends. No fake “download complete” state for the brochure inquiry. No unrelated research lane or alternative aesthetic. No pixel clone.
 
 DELIVERABLES AND FINAL SELF-CHECK
-Produce the same single page at desktop 1280px, tablet 768px and mobile 375px. Annotate mobile menu closed/open states, keyboard focus, primary hover/pressed states and native gallery dialog open/close behavior. These are states of the same page, not additional product pages.
+Produce the landing page and the reusable housing detail-page template at desktop 1280px, tablet 768px and mobile 375px. Show at least one populated detail screen plus clear variants for the other three properties. Annotate mobile menu closed/open states, keyboard focus, primary hover/pressed states, 3D viewer controls and native gallery dialog open/close behavior.
 Add concise handoff notes covering typography/color/spacing, native interaction and no-JS behavior, safe-area reserve, local asset loading, image disclosure and release blockers.
 Check the design against the following before finishing:
 1. The first viewport identifies the project, location context and next action; this is a design self-check, not a claimed five-second user test.
 2. The H1 is exactly “Temukan rumah Anda di Padalarang.” and the hero uses the uncropped landscape gate, with full signage preserved.
 3. Every section answers a buyer question and material unknowns remain visible.
-4. The four housing labels, address, WhatsApp and coordinates match the supplied facts.
+4. The four housing labels, detail routes, dummy WhatsApp number and coordinates match the supplied facts.
 5. Every image visibly says “Visualisasi proyek”; no present-condition or readiness claim is inferred.
 6. Mobile is readable, has no horizontal overflow, and reserves enough space for the safe-area contact bar.
 7. Navigation, WhatsApp, map and image viewing have genuine no-JS routes; menu/dialog keyboard and focus behavior are specified.

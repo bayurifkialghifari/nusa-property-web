@@ -4,28 +4,28 @@ import ActionLink from "./ActionLink.astro";
 import Icon from "./Icon.astro";
 
 const links = [
-  { href: "#hunian", label: "Pilihan hunian" },
-  { href: "#fasilitas", label: "Fasilitas" },
-  { href: "#galeri", label: "Galeri" },
-  { href: "#lokasi", label: "Lokasi" },
+  { href: "/#hunian", label: "Pilihan hunian" },
+  { href: "/#fasilitas", label: "Fasilitas" },
+  { href: "/#galeri", label: "Galeri" },
+  { href: "/#lokasi", label: "Lokasi" },
 ] as const;
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#beranda" class="brand" aria-label="G-Land Padalarang Residence, beranda">
+    <a href="/" class="brand" aria-label="G-Land Padalarang Residence, beranda">
       <span class="brand-name">G-Land</span>
       <span class="brand-location">Padalarang Residence</span>
     </a>
     <nav class="desktop-nav" aria-label="Navigasi utama">
       <ul>{links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
     </nav>
-    <div class="header-action"><ActionLink href={marketingLink} external>Hubungi marketing</ActionLink></div>
+    <div class="header-action"><ActionLink href={marketingLink} external>WhatsApp demo</ActionLink></div>
     <details class="mobile-nav" data-mobile-nav>
       <summary><span>Menu</span><Icon name="menu" class="menu-open" /><Icon name="close" class="menu-close" /></summary>
       <nav aria-label="Navigasi utama seluler">
         <ul>{links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>
-        <ActionLink href={marketingLink} external>Hubungi marketing</ActionLink>
+        <ActionLink href={marketingLink} external>WhatsApp demo</ActionLink>
       </nav>
     </details>
   </div>

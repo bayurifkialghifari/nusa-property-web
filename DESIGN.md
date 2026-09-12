@@ -21,7 +21,7 @@ A composed, readable residential-project page for people evaluating a home in Pa
 - Main task: understand the location, distinguish the four source-listed housing labels and ask marketing for details. Primary conversion is an informed WhatsApp inquiry, not a purchase or reservation.
 - Risk: a home is a consequential financial decision. Prices, dimensions, room counts, legal documents, financing, construction status and availability are not verified. Keep the need to confirm these visible near housing and contact content.
 - Evidence available: the supplied project source, address, housing labels, source-listed facilities, source images and supplied contact/map destinations. Visuals are not evidence of current on-site conditions.
-- Primary CTA: “Hubungi marketing”. Secondary hero CTA: “Lihat pilihan hunian”. “Minta brosur & harga” must open WhatsApp, never a fake download or submission.
+- Primary CTA: “WhatsApp demo”. Secondary hero CTA: “Lihat pilihan hunian”. “Minta brosur & harga” opens the same dummy WhatsApp route, never a fake download or submission.
 
 ### Information architecture and approved copy
 
@@ -29,11 +29,12 @@ A composed, readable residential-project page for people evaluating a home in Pa
 | --- | --- | --- |
 | Header / #beranda | Identify and navigate | Text wordmark “G-Land” with “Padalarang Residence”; nav “Pilihan hunian”, “Fasilitas”, “Galeri”, “Lokasi”; primary marketing link |
 | Hero / #beranda | Explain and orient | Eyebrow “G-Land Padalarang Residence”; one H1 exactly “Temukan rumah Anda di Padalarang.”; supporting text “Kenali pilihan hunian, fasilitas, dan lokasi G-Land Padalarang Residence. Diskusikan detailnya dengan tim marketing.”; two approved CTAs; gate image and visible “Visualisasi proyek” caption |
-| Housing / #hunian | Help distinguish options | H2 “Pilihan hunian”; four H3 labels exactly “Blok P Cozy Level”, “Blok P Superimposed”, “Cluster Ebony”, “Blok Q”; one associated image each; context-aware marketing link; no invented specification rows |
+| Housing / #hunian | Help distinguish options | H2 “Pilihan hunian”; four H3 labels exactly “Blok P Cozy Level”, “Blok P Superimposed”, “Cluster Ebony”, “Blok Q”; one associated image each; a local detail-page link; context-aware marketing link; no invented specification rows |
+| Housing detail / /hunian/{slug} | Compare one option in depth | Breadcrumb, source image, descriptive visual notes, interactive conceptual 3D preview, confirmation checklist, adjacent housing navigation and dummy WhatsApp route |
 | Facilities / #fasilitas | Explain source-listed amenities | H2 “Fasilitas lingkungan”; masjid, ruko, taman bermain, akses satu gerbang (one-gate), keamanan 24 jam; compact list, not five decorative cards |
 | Gallery / #galeri | Show source imagery honestly | H2 “Gambaran lingkungan”; gate and three environment images, each captioned “Visualisasi proyek”; images enlarge through progressive enhancement |
 | Location / #lokasi | Make the location assessable | H2 “Lokasi di Padalarang”; exact address “Jalan G.A. Manulang Km. 2, Rancabali Purabaya, Padalarang”; qualitative nearby places; map link |
-| Contact / #kontak | Offer an informed next step | H2 “Diskusikan pilihan hunian Anda.”; primary marketing link; “Minta brosur & harga” link; visible confirmation and external-contact explanation |
+| Contact / #kontak | Demonstrate the contact flow | H2 “Coba alur kontak properti.”; primary dummy WhatsApp link; “Minta brosur & harga” link; visible dummy-number explanation |
 | Footer | Reidentify and preserve contact | Project name, address, source attribution and marketing number; no invented legal links, company credentials or contact backend |
 
 Housing note: “Untuk harga, luas tanah dan bangunan, jumlah kamar, ketersediaan, serta dokumen legal, konfirmasikan langsung kepada tim marketing.”
@@ -80,7 +81,7 @@ One family: `Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", 
 | --text-body / body, nav, actions | 1rem / 16px | 1rem / 16px | 400 body; 600 actions | 1.6 body; 1.4 controls | 0 |
 | --text-small / captions, eyebrow, helpers | 0.875rem / 14px | 0.875rem / 14px | 400 captions; 500 labels | 1.5 | 0 |
 
-Supporting tokens: `--weight-body: 400`, `--weight-label: 500`, `--weight-heading: 600`, `--weight-brand: 700`; `--leading-body: 1.6`, `--leading-lead: 1.65`, `--leading-heading: 1.2`, `--leading-card: 1.4`, `--leading-small: 1.5`; `--tracking-tight: -0.04em`, `--tracking-heading: -0.025em`, `--tracking-card: -0.015em`, `--tracking-body: 0`. Hero line-height is responsive as stated above.
+Supporting tokens: `--weight-body: 400`, `--weight-label: 500`, `--weight-heading: 600`, `--weight-brand: 700`; `--leading-body: 1.6`, `--leading-lead: 1.65`, `--leading-heading: 1.2`, `--leading-card: 1.4`, `--leading-small: 1.5`; `--tracking-tight: -0.04em`, `--tracking-heading: -0.025em`, `--tracking-card: -0.015em`, `--tracking-eyebrow: 0.08em`, `--tracking-body: 0`. Hero line-height is responsive as stated above.
 
 Body max measure is 60ch; hero intro max measure is 44ch. H1 remains natural text with no inline image or forced desktop-only line break. Target three comfortable lines in the desktop split and natural wrapping on mobile; do not shrink below the approved mobile size to force a particular wrap. Never clip text or make important disclosures smaller than 14px.
 
@@ -116,6 +117,8 @@ Body max measure is 60ch; hero intro max measure is 44ch. H1 remains natural tex
 | --sticky-action-height | 72px minimum excluding safe-area inset |
 | --sticky-reserve | 88px minimum excluding safe-area inset; increase if bar grows |
 | --dialog-max | 1000px |
+| --viewer-min-height | 360px |
+| --viewer-min-height-mobile | 320px |
 | --z-header | 10 if sticky behavior is used |
 | --z-mobile-action | 20 |
 
@@ -167,10 +170,19 @@ Implement reusable semantic primitives against this contract. The worker does no
 
 ### HousingCard
 
-- Structure: `<article>` with source image/figure, visible visualization caption, exact H3 housing label and a context-specific marketing anchor. Variants: the four source-listed options only.
+- Structure: `<article>` with source image/figure, visible visualization caption, exact H3 housing label, a primary local “Lihat detail & 3D” route and a context-specific marketing anchor. Variants: the four source-listed options only.
 - Layout: image followed by an unboxed text stack. No heavy enclosing surface, badge or fake spec grid. Spacing: 16px media-to-title, 12px title-to-action.
 - States: card itself is static. Its marketing link has shared states. Failed imagery retains reserved frame, helpful alt text and readable label/contact action; it never blocks inquiry.
 - Accessibility: link name must include the housing label, e.g. “Tanyakan Blok P Cozy Level”. No nested click targets. Prices, areas, bedrooms and current availability must not be inferred from the image or its filename.
+
+### PropertyDetail and InteractivePropertyViewer
+
+- Each housing option owns a static Astro route under `/hunian/{slug}` with a unique title and description. The source image remains the factual visual reference.
+- The 3D preview is a stylized, procedural interpretation of the visible facade, not an architectural model, floor plan, dimension claim or construction promise. Show that disclosure directly beside the viewer.
+- Viewer controls: pointer drag rotates the camera, wheel/pinch zooms, and visible buttons rotate left, rotate right and reset the view. The static source image remains available when WebGL or JavaScript is unavailable.
+- The viewer uses the existing canvas, line, ink, pine and muted palette only. Lighting creates depth; it must not introduce gradients, glow, glassmorphism or decorative perpetual animation.
+- The WebGL island loads only on housing detail pages. Keep the remainder of each page static Astro HTML.
+- Focus and touch controls follow the shared 44px minimum and visible focus treatment. Reduced-motion mode disables transitional transforms; direct manipulation remains available.
 
 ### FacilityList
 
@@ -190,8 +202,8 @@ Implement reusable semantic primitives against this contract. The worker does no
 ### LocationPanel, ContactSection and MobileContactBar
 
 - Structure: address in text, qualitative proximity list, genuine external map anchor; contact section with marketing and brochure-inquiry anchors; mobile bar reuses ActionLink. No form fields, consent theatre, lead storage or contact API.
-- WhatsApp destination: `https://wa.me/6281232385000`. Plain primary message: “Halo, saya ingin informasi G-Land Padalarang Residence.” Brochure message: “Halo, saya ingin meminta brosur dan informasi harga G-Land Padalarang Residence.” Option messages may include only the exact housing label. URL-encode the message; users decide whether to send it.
-- Map destination: `https://www.google.com/maps/search/?api=1&query=-6.850577%2C107.4743523`. Display phone as “+62 812-3238-5000”. The user must confirm contact ownership and map suitability before public launch.
+- WhatsApp destination for this demo: `https://wa.me/6280000000000`. Display phone as “+62 800-0000-0000 (Demo)”. This is intentionally a dummy number and must not be represented as an active marketing contact. URL-encode the prefilled message; users decide whether to continue.
+- Map destination: `https://www.google.com/maps/search/?api=1&query=-6.850577%2C107.4743523`. The user must confirm map suitability before public launch.
 - State: outbound link feedback only. No request-submitted dialog, automated WhatsApp sending, guaranteed appointment or fake downloaded brochure. Visible copy says the conversation continues through WhatsApp.
 
 ## 6. Motion & Interaction

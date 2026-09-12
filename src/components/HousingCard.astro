@@ -1,21 +1,27 @@
 ---
-import type { ProjectImage } from "../data/media";
+import type { HousingOption } from "../data/housing";
 import { whatsappLink } from "../data/project";
 import ActionLink from "./ActionLink.astro";
 import ProjectFigure from "./ProjectFigure.astro";
 
-interface Props { readonly image: ProjectImage; }
-const { image } = Astro.props;
-const href = whatsappLink(`Halo tim marketing G-Land Padalarang Residence, saya tertarik dengan ${image.title}. Mohon informasi harga, spesifikasi, ketersediaan, dan dokumen legalnya. Terima kasih.`);
+interface Props { readonly option: HousingOption; }
+const { option } = Astro.props;
+const href = whatsappLink(`Halo, saya tertarik dengan ${option.title} di G-Land Padalarang Residence.`);
 ---
 
 <article>
-  <ProjectFigure image={image} />
-  <h3>{image.title}</h3>
-  <ActionLink href={href} variant="text" external>Tanyakan {image.title}</ActionLink>
+  <ProjectFigure image={option.image} />
+  <h3>{option.title}</h3>
+  <p>{option.summary}</p>
+  <div class="card-actions">
+    <ActionLink href={`/hunian/${option.slug}/`} variant="secondary">Lihat detail &amp; 3D</ActionLink>
+    <ActionLink href={href} variant="text" external>Tanyakan {option.title}</ActionLink>
+  </div>
 </article>
 
 <style>
   article { min-inline-size: 0; }
-  h3 { margin-block-start: var(--space-4); margin-block-end: var(--space-3); }
+  h3 { margin-block-start: var(--space-4); }
+  p { margin-block-start: var(--space-2); color: var(--muted); }
+  .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-block-start: var(--space-4); }
 </style>
